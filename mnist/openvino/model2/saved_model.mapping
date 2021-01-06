@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="Identity" out_port_id="0"/>
+		<IR id="31" name="StatefulPartitionedCall/mnist/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Func/StatefulPartitionedCall/output/_9" out_port_id="0"/>
+		<IR id="31" name="StatefulPartitionedCall/mnist/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/Identity" out_port_id="0"/>
+		<IR id="31" name="StatefulPartitionedCall/mnist/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense_1/Softmax" out_port_id="0"/>
+		<IR id="31" name="StatefulPartitionedCall/mnist/dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d_1/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="7" name="StatefulPartitionedCall/mnist/conv2d_1/Conv2D/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/max_pooling2d_1/MaxPool" out_port_id="0"/>
+		<IR id="14" name="StatefulPartitionedCall/mnist/max_pooling2d_1/MaxPool/Transpose" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d/BiasAdd" out_port_id="0"/>
+		<IR id="4" name="StatefulPartitionedCall/mnist/conv2d/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d/Relu" out_port_id="0"/>
+		<IR id="5" name="StatefulPartitionedCall/mnist/conv2d/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d/Conv2D/ReadVariableOp" out_port_id="0"/>
+		<IR id="1" name="StatefulPartitionedCall/mnist/conv2d/Conv2D/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/max_pooling2d/MaxPool" out_port_id="0"/>
+		<IR id="6" name="StatefulPartitionedCall/mnist/max_pooling2d/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d_1/Relu" out_port_id="0"/>
+		<IR id="11" name="StatefulPartitionedCall/mnist/conv2d_1/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dropout/Identity" out_port_id="0"/>
+		<IR id="26" name="StatefulPartitionedCall/mnist/dense/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense/Relu" out_port_id="0"/>
+		<IR id="26" name="StatefulPartitionedCall/mnist/dense/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense/MatMul" out_port_id="0"/>
+		<IR id="23" name="StatefulPartitionedCall/mnist/dense/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense_1/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="27" name="StatefulPartitionedCall/mnist/dense_1/MatMul/1_port_transpose535_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense_1/BiasAdd" out_port_id="0"/>
+		<IR id="30" name="StatefulPartitionedCall/mnist/dense_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense/MatMul/ReadVariableOp" out_port_id="0"/>
+		<IR id="16" name="StatefulPartitionedCall/mnist/dense/MatMul/1_port_transpose539_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/flatten/Reshape" out_port_id="0"/>
+		<IR id="22" name="StatefulPartitionedCall/mnist/flatten/Reshape" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d_1/Conv2D" out_port_id="0"/>
+		<IR id="8" name="StatefulPartitionedCall/mnist/conv2d_1/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d/Conv2D" out_port_id="0"/>
+		<IR id="2" name="StatefulPartitionedCall/mnist/conv2d/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/conv2d_1/BiasAdd" out_port_id="0"/>
+		<IR id="10" name="StatefulPartitionedCall/mnist/conv2d_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="Func/StatefulPartitionedCall/input/_0" out_port_id="0"/>
+		<IR id="0" name="input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="input_1" out_port_id="0"/>
+		<IR id="0" name="input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense_1/MatMul" out_port_id="0"/>
+		<IR id="28" name="StatefulPartitionedCall/mnist/dense_1/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/dense/BiasAdd" out_port_id="0"/>
+		<IR id="25" name="StatefulPartitionedCall/mnist/dense/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/flatten/Const" out_port_id="0"/>
+		<IR id="21" name="StatefulPartitionedCall/mnist/dense/MatMul/ReadVariableOp/MinusOne/shapes_concat" out_port_id="2"/>
+	</map>
+</mapping>
