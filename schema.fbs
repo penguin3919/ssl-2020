@@ -1,0 +1,350 @@
+{\rtf1\ansi\ansicpg949\deff0\nouicompat\deflang1033\deflangfe1042{\fonttbl{\f0\fnil\fcharset0 Consolas;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl240\slmult1\f0\fs20\lang18 // Copyright 2017 The TensorFlow Authors. All Rights Reserved.\par
+//\par
+// Licensed under the Apache License, Version 2.0 (the "License");\par
+// you may not use this file except in compliance with the License.\par
+// You may obtain a copy of the License at\par
+//\par
+//     {{\field{\*\fldinst{HYPERLINK http://www.apache.org/licenses/LICENSE-2.0 }}{\fldrslt{http://www.apache.org/licenses/LICENSE-2.0\ul0\cf0}}}}\f0\fs20\par
+//\par
+// Unless required by applicable law or agreed to in writing, software\par
+// distributed under the License is distributed on an "AS IS" BASIS,\par
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\par
+// See the License for the specific language governing permissions and\par
+// limitations under the License.\par
+\par
+// Revision History\par
+// Version 0: Initial version.\par
+// Version 1: Add subgraphs to schema.\par
+// Version 2: Rename operators to conform to NN API.\par
+// Version 3: Move buffer data from Model.Subgraph.Tensors to Model.Buffers.\par
+\par
+namespace tflite;\par
+\par
+// This corresponds to the version.\par
+file_identifier "TFL3";\par
+// File extension of any written files.\par
+file_extension "tflite";\par
+\par
+// The type of data stored in a tensor.\par
+enum TensorType : byte \{\par
+  FLOAT32 = 0,\par
+  FLOAT16 = 1,\par
+  INT32 = 2,\par
+  UINT8 = 3,\par
+  INT64 = 4,\par
+  STRING = 5,\par
+\}\par
+\par
+// Parameters for converting a quantized tensor back to float. Given a\par
+// quantized value q, the corresponding float value f should be:\par
+//   f = scale * (q - zero_point)\par
+table QuantizationParameters \{\par
+  min:[float];  // For importing back into tensorflow.\par
+  max:[float];  // For importing back into tensorflow.\par
+  scale:[float];\par
+  zero_point:[long];\par
+\}\par
+\par
+table Tensor \{\par
+  // The tensor shape. The meaning of each entry is operator-specific but\par
+  // builtin ops use: [batch size, number of channels, height, width] (That's\par
+  // Tensorflow's NCHW).\par
+  shape:[int];\par
+  type:TensorType;\par
+  // An index that refers to the buffers table at the root of the model. Or,\par
+  // if there is no data buffer associated (i.e. intermediate results), then\par
+  // this is 0 (which refers to an always existant empty buffer).\par
+  //\par
+  // The data_buffer itself is an opaque container, with the assumption that the\par
+  // target device is little-endian. In addition, all builtin operators assume\par
+  // the memory is ordered such that if `shape` is [4, 3, 2], then index\par
+  // [i, j, k] maps to data_buffer[i*3*2 + j*3 + k].\par
+  buffer:uint;\par
+  name:string;  // For debugging and importing back into tensorflow.\par
+  quantization:QuantizationParameters;  // Optional.\par
+\}\par
+\par
+// A list of builtin operators. Builtin operators a slighlty faster than custom\par
+// ones, but not by much. Moreover, while custom operators accept an opaque\par
+// object containing configuration parameters, builtins have a predetermined\par
+// set of acceptable options.\par
+enum BuiltinOperator : byte \{\par
+  ADD = 0,\par
+  AVERAGE_POOL_2D = 1,\par
+  CONCATENATION = 2,\par
+  CONV_2D = 3,\par
+  DEPTHWISE_CONV_2D = 4,\par
+  // DEPTH_TO_SPACE = 5,\par
+  // DEQUANTIZE = 6,\par
+  EMBEDDING_LOOKUP = 7,\par
+  // FLOOR = 8,\par
+  FULLY_CONNECTED = 9,\par
+  HASHTABLE_LOOKUP = 10,\par
+  L2_NORMALIZATION = 11,\par
+  L2_POOL_2D = 12,\par
+  LOCAL_RESPONSE_NORMALIZATION = 13,\par
+  LOGISTIC = 14,\par
+  LSH_PROJECTION = 15,\par
+  LSTM = 16,\par
+  MAX_POOL_2D = 17,\par
+  MUL = 18,\par
+  RELU = 19,\par
+  RELU1 = 20,\par
+  RELU6 = 21,\par
+  RESHAPE = 22,\par
+  RESIZE_BILINEAR = 23,\par
+  RNN = 24,\par
+  SOFTMAX = 25,\par
+  SPACE_TO_DEPTH = 26,\par
+  SVDF = 27,\par
+  TANH = 28,\par
+  // TODO(aselle): Consider rename to CONCATENATE_EMBEDDINGS\par
+  CONCAT_EMBEDDINGS = 29,\par
+  SKIP_GRAM = 30,\par
+  CALL = 31,\par
+  CUSTOM = 32,\par
+  EMBEDDING_LOOKUP_SPARSE = 33,\par
+\}\par
+\par
+// Options for the builtin operators.\par
+union BuiltinOptions \{\par
+  Conv2DOptions,\par
+  DepthwiseConv2DOptions,\par
+  ConcatEmbeddingsOptions,\par
+  LSHProjectionOptions,\par
+  Pool2DOptions,\par
+  SVDFOptions,\par
+  RNNOptions,\par
+  FullyConnectedOptions,\par
+  SoftmaxOptions,\par
+  ConcatenationOptions,\par
+  AddOptions,\par
+  L2NormOptions,\par
+  LocalResponseNormalizationOptions,\par
+  LSTMOptions,\par
+  ResizeBilinearOptions,\par
+  CallOptions,\par
+  ReshapeOptions,\par
+  SkipGramOptions,\par
+  SpaceToDepthOptions,\par
+  EmbeddingLookupSparseOptions,\par
+  MulOptions,\par
+\}\par
+\par
+enum Padding : byte \{ SAME, VALID \}\par
+\par
+enum ActivationFunctionType : byte \{\par
+  NONE = 0,\par
+  RELU = 1,\par
+  RELU1 = 2,\par
+  RELU6 = 3,\par
+  TANH = 4,\par
+  SIGN_BIT = 5,\par
+\}\par
+\par
+table Conv2DOptions \{\par
+  padding:Padding;\par
+  stride_w:int;\par
+  stride_h:int;\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table Pool2DOptions \{\par
+  padding:Padding;\par
+  stride_w:int;\par
+  stride_h:int;\par
+  filter_width:int;\par
+  filter_height:int;\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table DepthwiseConv2DOptions \{\par
+  padding:Padding;\par
+  stride_w:int;\par
+  stride_h:int;\par
+  depth_multiplier:int;\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table ConcatEmbeddingsOptions \{\par
+  num_channels:int;\par
+  num_columns_per_channel:[int];\par
+  embedding_dim_per_channel:[int]; // This could be inferred from parameters.\par
+\}\par
+\par
+enum LSHProjectionType: byte \{\par
+  UNKNOWN = 0,\par
+  SPARSE = 1,\par
+  DENSE = 2,\par
+\}\par
+\par
+table LSHProjectionOptions \{\par
+  type: LSHProjectionType;\par
+\}\par
+\par
+table SVDFOptions \{\par
+  rank:int;\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+// An implementation of TensorFlow RNNCell.\par
+table RNNOptions \{\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+// An implementation of TensorFlow fully_connected (a.k.a Dense) layer.\par
+table FullyConnectedOptions \{\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table SoftmaxOptions \{\par
+  beta: float;\par
+\}\par
+\par
+// An implementation of TensorFlow concat.\par
+table ConcatenationOptions \{\par
+  axis:int;\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table AddOptions \{\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table MulOptions \{\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table L2NormOptions \{\par
+  fused_activation_function:ActivationFunctionType;\par
+\}\par
+\par
+table LocalResponseNormalizationOptions \{\par
+  radius:int;\par
+  bias:float;\par
+  alpha:float;\par
+  beta:float;\par
+\}\par
+\par
+// An implementation of TensorFlow LSTMCell and CoupledInputForgetGateLSTMCell\par
+table LSTMOptions \{\par
+  fused_activation_function:ActivationFunctionType;\par
+  cell_clip: float; // Optional, 0.0 means no clipping\par
+  proj_clip: float; // Optional, 0.0 means no clipping\par
+\}\par
+\par
+table ResizeBilinearOptions \{\par
+  new_height:int;\par
+  new_width:int;\par
+\}\par
+\par
+// A call operation options\par
+table CallOptions \{\par
+  // The subgraph index that needs to be called.\par
+  subgraph:uint;\par
+\}\par
+\par
+table ReshapeOptions \{\par
+  new_shape:[int];\par
+\}\par
+\par
+table SkipGramOptions \{\par
+  ngram_size: int;\par
+  max_skip_size: int;\par
+  include_all_ngrams: bool;\par
+\}\par
+\par
+table SpaceToDepthOptions \{\par
+  block_size: int;\par
+\}\par
+\par
+enum CombinerType : byte \{\par
+  SUM = 0,\par
+  MEAN = 1,\par
+  SQRTN = 2,\par
+\}\par
+\par
+table EmbeddingLookupSparseOptions \{\par
+  combiner:CombinerType;\par
+\}\par
+\par
+// An OperatorCode can be an enum value (BuiltinOperator) if the operator is a\par
+// builtin, or a string if the operator is custom.\par
+table OperatorCode \{\par
+  builtin_code:BuiltinOperator;\par
+  custom_code:string;\par
+\}\par
+\par
+enum CustomOptionsFormat : byte \{\par
+  FLEXBUFFERS = 0,\par
+\}\par
+\par
+// An operator takes tensors as inputs and outputs. The type of operation being\par
+// performed is determined by an index into the list of valid OperatorCodes,\par
+// while the specifics of each operations is configured using builtin_options\par
+// or custom_options.\par
+table Operator \{\par
+  // Index into the operator_codes array. Using an integer here avoids\par
+  // complicate map lookups.\par
+  opcode_index:uint;\par
+\par
+  // Optional input and output tensors are indicated by -1.\par
+  inputs:[int];\par
+  outputs:[int];\par
+\par
+  builtin_options:BuiltinOptions;\par
+  custom_options:[ubyte];\par
+  custom_options_format:CustomOptionsFormat;\par
+\}\par
+\par
+// The root type, defining a model.\par
+table SubGraph \{\par
+  // A list of all tensors used in this model.\par
+  tensors:[Tensor];\par
+\par
+  // Indices of the input tensors.\par
+  inputs:[int];\par
+\par
+  // Indices of the output tensors.\par
+  outputs:[int];\par
+\par
+  // All operators, in execution order.\par
+  operators:[Operator];\par
+\par
+  // Name of subgraph (used for debugging).\par
+  name:string;\par
+\}\par
+\par
+// Table of raw data buffers (used for constant tensors). Referenced by tensors\par
+// by index.\par
+table Buffer \{\par
+  data:[ubyte];\par
+\}\par
+\par
+table Model \{\par
+  // Version of the schema.\par
+  version:uint;\par
+\par
+  // A list of all operator codes used in this model. This is\par
+  // kept in order because operators carry an index into this\par
+  // vector.\par
+  operator_codes:[OperatorCode];\par
+\par
+  // All the subgraphs of the model. The 0th is assumed to be the main\par
+  // model.\par
+  subgraphs:[SubGraph];\par
+\par
+  // A description of the model.\par
+  description:string;\par
+\par
+  // Buffers of the model\par
+  buffers:[Buffer];\par
+\par
+\}\par
+\par
+root_type Model;\par
+}
+ 
