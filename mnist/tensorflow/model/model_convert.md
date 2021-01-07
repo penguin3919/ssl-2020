@@ -28,7 +28,7 @@
 (saved_model.pb -> .xml /.bin)
 
 mo_tf.py [1 28 28 1] ([-1 28 28 1])
-(set N W H C order in order openvino version???)
+(set N W H C order in older openvino version???)
 
 saved_model.pb(saved_model_X_quant)
 
