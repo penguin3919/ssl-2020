@@ -1,0 +1,64 @@
+{
+  version: 3,
+  operator_codes: [
+    {
+      builtin_code: "CUSTOM",
+      custom_code: "edgetpu-custom-op"
+    }
+  ],
+  subgraphs: [
+    {
+      tensors: [
+        {
+          shape: [
+            1,
+            224,
+            224,
+            3
+          ],
+          type: "UINT8",
+          name: "map/TensorArrayStack/TensorArrayGatherV3",
+          quantization: {
+            scale: [
+              0.007812
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            965
+          ],
+          type: "UINT8",
+          name: "prediction",
+          quantization: {
+            scale: [
+              0.003906
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        }
+      ],
+      inputs: [
+        0
+      ],
+      outputs: [
+        1
+      ],
+      operators: [
+        {
+          inputs: [
+            0
+          ],
+          outputs: [
+            1
+          ],
+          custom_options: [
+            49,
+            0,
+            52,

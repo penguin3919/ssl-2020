@@ -1,0 +1,4875 @@
+{
+  version: 3,
+  operator_codes: [
+    {
+    },
+    {
+      builtin_code: "AVERAGE_POOL_2D"
+    },
+    {
+      builtin_code: "CONV_2D"
+    },
+    {
+      builtin_code: "DEPTHWISE_CONV_2D"
+    },
+    {
+      builtin_code: "FULLY_CONNECTED"
+    },
+    {
+      builtin_code: "SOFTMAX"
+    }
+  ],
+  subgraphs: [
+    {
+      tensors: [
+        {
+          shape: [
+            1,
+            1,
+            1,
+            1280
+          ],
+          type: "UINT8",
+          buffer: 150,
+          name: "AvgPool/AvgPool",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            965
+          ],
+          type: "UINT8",
+          buffer: 79,
+          name: "Logits/BiasAdd",
+          quantization: {
+            min: [
+              -6.595878
+            ],
+            max: [
+              14.428483
+            ],
+            scale: [
+              0.082448
+            ],
+            zero_point: [
+              80
+            ]
+          }
+        },
+        {
+          shape: [
+            965
+          ],
+          type: "INT32",
+          buffer: 1,
+          name: "Logits/MatMul_bias",
+          quantization: {
+            scale: [
+              0.000057
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            965,
+            1280
+          ],
+          type: "UINT8",
+          buffer: 6,
+          name: "Logits/weights_quant/FakeQuantWithMinMaxVars/transpose",
+          quantization: {
+            min: [
+              -0.329576
+            ],
+            max: [
+              0.290618
+            ],
+            scale: [
+              0.002442
+            ],
+            zero_point: [
+              136
+            ]
+          }
+        },
+        {
+          shape: [
+            32
+          ],
+          type: "INT32",
+          buffer: 78,
+          name: "MobilenetV2/Conv/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000079
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            112,
+            112,
+            32
+          ],
+          type: "UINT8",
+          buffer: 132,
+          name: "MobilenetV2/Conv/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.995313
+            ],
+            scale: [
+              0.023511
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            32,
+            3,
+            3,
+            3
+          ],
+          type: "UINT8",
+          buffer: 133,
+          name: "MobilenetV2/Conv/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.649269
+            ],
+            max: [
+              0.904137
+            ],
+            scale: [
+              0.010053
+            ],
+            zero_point: [
+              165
+            ]
+          }
+        },
+        {
+          shape: [
+            1280
+          ],
+          type: "INT32",
+          buffer: 2,
+          name: "MobilenetV2/Conv_1/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000436
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            1280
+          ],
+          type: "UINT8",
+          buffer: 80,
+          name: "MobilenetV2/Conv_1/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1280,
+            1,
+            1,
+            320
+          ],
+          type: "UINT8",
+          buffer: 3,
+          name: "MobilenetV2/Conv_1/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.489547
+            ],
+            max: [
+              0.459181
+            ],
+            scale: [
+              0.003735
+            ],
+            zero_point: [
+              132
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            112,
+            112,
+            32
+          ],
+          type: "UINT8",
+          buffer: 170,
+          name: "MobilenetV2/expanded_conv/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            32
+          ],
+          type: "INT32",
+          buffer: 158,
+          name: "MobilenetV2/expanded_conv/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.026876
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            32
+          ],
+          type: "UINT8",
+          buffer: 77,
+          name: "MobilenetV2/expanded_conv/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -108.807373
+            ],
+            max: [
+              181.548431
+            ],
+            scale: [
+              1.143133
+            ],
+            zero_point: [
+              96
+            ]
+          }
+        },
+        {
+          shape: [
+            16
+          ],
+          type: "INT32",
+          buffer: 75,
+          name: "MobilenetV2/expanded_conv/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000435
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            112,
+            112,
+            16
+          ],
+          type: "UINT8",
+          buffer: 131,
+          name: "MobilenetV2/expanded_conv/project/add_fold",
+          quantization: {
+            min: [
+              -29.917046
+            ],
+            max: [
+              29.221302
+            ],
+            scale: [
+              0.231915
+            ],
+            zero_point: [
+              129
+            ]
+          }
+        },
+        {
+          shape: [
+            16,
+            1,
+            1,
+            32
+          ],
+          type: "UINT8",
+          buffer: 76,
+          name: "MobilenetV2/expanded_conv/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.990027
+            ],
+            max: [
+              2.709194
+            ],
+            scale: [
+              0.018501
+            ],
+            zero_point: [
+              109
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            96
+          ],
+          type: "UINT8",
+          buffer: 129,
+          name: "MobilenetV2/expanded_conv_1/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            96
+          ],
+          type: "INT32",
+          buffer: 71,
+          name: "MobilenetV2/expanded_conv_1/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.001647
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            96
+          ],
+          type: "UINT8",
+          buffer: 72,
+          name: "MobilenetV2/expanded_conv_1/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -15.922506
+            ],
+            max: [
+              1.859394
+            ],
+            scale: [
+              0.070007
+            ],
+            zero_point: [
+              228
+            ]
+          }
+        },
+        {
+          shape: [
+            96
+          ],
+          type: "INT32",
+          buffer: 73,
+          name: "MobilenetV2/expanded_conv_1/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.002082
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            112,
+            112,
+            96
+          ],
+          type: "UINT8",
+          buffer: 130,
+          name: "MobilenetV2/expanded_conv_1/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            96,
+            1,
+            1,
+            16
+          ],
+          type: "UINT8",
+          buffer: 74,
+          name: "MobilenetV2/expanded_conv_1/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.083313
+            ],
+            max: [
+              1.197319
+            ],
+            scale: [
+              0.008979
+            ],
+            zero_point: [
+              122
+            ]
+          }
+        },
+        {
+          shape: [
+            24
+          ],
+          type: "INT32",
+          buffer: 97,
+          name: "MobilenetV2/expanded_conv_1/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.00028
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            24
+          ],
+          type: "UINT8",
+          buffer: 127,
+          name: "MobilenetV2/expanded_conv_1/project/add_fold",
+          quantization: {
+            min: [
+              -29.742167
+            ],
+            max: [
+              33.991047
+            ],
+            scale: [
+              0.249934
+            ],
+            zero_point: [
+              119
+            ]
+          }
+        },
+        {
+          shape: [
+            24,
+            1,
+            1,
+            96
+          ],
+          type: "UINT8",
+          buffer: 70,
+          name: "MobilenetV2/expanded_conv_1/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.648244
+            ],
+            max: [
+              1.375645
+            ],
+            scale: [
+              0.011905
+            ],
+            zero_point: [
+              139
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 143,
+          name: "MobilenetV2/expanded_conv_10/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 36,
+          name: "MobilenetV2/expanded_conv_10/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.000769
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            384
+          ],
+          type: "UINT8",
+          buffer: 124,
+          name: "MobilenetV2/expanded_conv_10/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -5.574069
+            ],
+            max: [
+              2.726744
+            ],
+            scale: [
+              0.03268
+            ],
+            zero_point: [
+              172
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 37,
+          name: "MobilenetV2/expanded_conv_10/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000328
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 98,
+          name: "MobilenetV2/expanded_conv_10/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384,
+            1,
+            1,
+            64
+          ],
+          type: "UINT8",
+          buffer: 38,
+          name: "MobilenetV2/expanded_conv_10/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.191238
+            ],
+            max: [
+              0.186744
+            ],
+            scale: [
+              0.001488
+            ],
+            zero_point: [
+              130
+            ]
+          }
+        },
+        {
+          shape: [
+            96
+          ],
+          type: "INT32",
+          buffer: 33,
+          name: "MobilenetV2/expanded_conv_10/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000127
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            96
+          ],
+          type: "UINT8",
+          buffer: 96,
+          name: "MobilenetV2/expanded_conv_10/project/add_fold",
+          quantization: {
+            min: [
+              -22.156473
+            ],
+            max: [
+              24.536922
+            ],
+            scale: [
+              0.183111
+            ],
+            zero_point: [
+              121
+            ]
+          }
+        },
+        {
+          shape: [
+            96,
+            1,
+            1,
+            384
+          ],
+          type: "UINT8",
+          buffer: 35,
+          name: "MobilenetV2/expanded_conv_10/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.685337
+            ],
+            max: [
+              0.687842
+            ],
+            scale: [
+              0.005406
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            96
+          ],
+          type: "UINT8",
+          buffer: 94,
+          name: "MobilenetV2/expanded_conv_11/add",
+          quantization: {
+            min: [
+              -21.856577
+            ],
+            max: [
+              23.827251
+            ],
+            scale: [
+              0.179152
+            ],
+            zero_point: [
+              122
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            576
+          ],
+          type: "UINT8",
+          buffer: 95,
+          name: "MobilenetV2/expanded_conv_11/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            576
+          ],
+          type: "INT32",
+          buffer: 32,
+          name: "MobilenetV2/expanded_conv_11/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.00501
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            576
+          ],
+          type: "UINT8",
+          buffer: 148,
+          name: "MobilenetV2/expanded_conv_11/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -5.690189
+            ],
+            max: [
+              48.393738
+            ],
+            scale: [
+              0.212929
+            ],
+            zero_point: [
+              28
+            ]
+          }
+        },
+        {
+          shape: [
+            576
+          ],
+          type: "INT32",
+          buffer: 122,
+          name: "MobilenetV2/expanded_conv_11/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000316
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            576
+          ],
+          type: "UINT8",
+          buffer: 164,
+          name: "MobilenetV2/expanded_conv_11/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            576,
+            1,
+            1,
+            96
+          ],
+          type: "UINT8",
+          buffer: 153,
+          name: "MobilenetV2/expanded_conv_11/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.214582
+            ],
+            max: [
+              0.22385
+            ],
+            scale: [
+              0.001726
+            ],
+            zero_point: [
+              125
+            ]
+          }
+        },
+        {
+          shape: [
+            96
+          ],
+          type: "INT32",
+          buffer: 30,
+          name: "MobilenetV2/expanded_conv_11/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000131
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            96
+          ],
+          type: "UINT8",
+          buffer: 128,
+          name: "MobilenetV2/expanded_conv_11/project/add_fold",
+          quantization: {
+            min: [
+              -13.989549
+            ],
+            max: [
+              15.738242
+            ],
+            scale: [
+              0.11658
+            ],
+            zero_point: [
+              120
+            ]
+          }
+        },
+        {
+          shape: [
+            96,
+            1,
+            1,
+            576
+          ],
+          type: "UINT8",
+          buffer: 31,
+          name: "MobilenetV2/expanded_conv_11/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.705035
+            ],
+            max: [
+              0.711218
+            ],
+            scale: [
+              0.005576
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            96
+          ],
+          type: "UINT8",
+          buffer: 89,
+          name: "MobilenetV2/expanded_conv_12/add",
+          quantization: {
+            min: [
+              -26.950081
+            ],
+            max: [
+              28.028084
+            ],
+            scale: [
+              0.215601
+            ],
+            zero_point: [
+              125
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            576
+          ],
+          type: "UINT8",
+          buffer: 92,
+          name: "MobilenetV2/expanded_conv_12/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            576
+          ],
+          type: "INT32",
+          buffer: 26,
+          name: "MobilenetV2/expanded_conv_12/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.004075
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            576
+          ],
+          type: "UINT8",
+          buffer: 27,
+          name: "MobilenetV2/expanded_conv_12/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -23.612297
+            ],
+            max: [
+              20.376911
+            ],
+            scale: [
+              0.173186
+            ],
+            zero_point: [
+              137
+            ]
+          }
+        },
+        {
+          shape: [
+            576
+          ],
+          type: "INT32",
+          buffer: 28,
+          name: "MobilenetV2/expanded_conv_12/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000215
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            576
+          ],
+          type: "UINT8",
+          buffer: 152,
+          name: "MobilenetV2/expanded_conv_12/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            576,
+            1,
+            1,
+            96
+          ],
+          type: "UINT8",
+          buffer: 29,
+          name: "MobilenetV2/expanded_conv_12/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.140072
+            ],
+            max: [
+              0.164434
+            ],
+            scale: [
+              0.001199
+            ],
+            zero_point: [
+              118
+            ]
+          }
+        },
+        {
+          shape: [
+            96
+          ],
+          type: "INT32",
+          buffer: 24,
+          name: "MobilenetV2/expanded_conv_12/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000193
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            96
+          ],
+          type: "UINT8",
+          buffer: 91,
+          name: "MobilenetV2/expanded_conv_12/project/add_fold",
+          quantization: {
+            min: [
+              -19.08182
+            ],
+            max: [
+              18.932741
+            ],
+            scale: [
+              0.149077
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            96,
+            1,
+            1,
+            576
+          ],
+          type: "UINT8",
+          buffer: 25,
+          name: "MobilenetV2/expanded_conv_12/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.053506
+            ],
+            max: [
+              1.032156
+            ],
+            scale: [
+              0.008211
+            ],
+            zero_point: [
+              129
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            576
+          ],
+          type: "UINT8",
+          buffer: 149,
+          name: "MobilenetV2/expanded_conv_13/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            576
+          ],
+          type: "INT32",
+          buffer: 20,
+          name: "MobilenetV2/expanded_conv_13/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.001513
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            576
+          ],
+          type: "UINT8",
+          buffer: 21,
+          name: "MobilenetV2/expanded_conv_13/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -3.460433
+            ],
+            max: [
+              12.875878
+            ],
+            scale: [
+              0.064316
+            ],
+            zero_point: [
+              55
+            ]
+          }
+        },
+        {
+          shape: [
+            576
+          ],
+          type: "INT32",
+          buffer: 22,
+          name: "MobilenetV2/expanded_conv_13/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000309
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            576
+          ],
+          type: "UINT8",
+          buffer: 147,
+          name: "MobilenetV2/expanded_conv_13/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            576,
+            1,
+            1,
+            96
+          ],
+          type: "UINT8",
+          buffer: 23,
+          name: "MobilenetV2/expanded_conv_13/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.196669
+            ],
+            max: [
+              0.167664
+            ],
+            scale: [
+              0.001434
+            ],
+            zero_point: [
+              138
+            ]
+          }
+        },
+        {
+          shape: [
+            160
+          ],
+          type: "INT32",
+          buffer: 139,
+          name: "MobilenetV2/expanded_conv_13/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000097
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            160
+          ],
+          type: "UINT8",
+          buffer: 88,
+          name: "MobilenetV2/expanded_conv_13/project/add_fold",
+          quantization: {
+            min: [
+              -13.131454
+            ],
+            max: [
+              13.444107
+            ],
+            scale: [
+              0.104218
+            ],
+            zero_point: [
+              126
+            ]
+          }
+        },
+        {
+          shape: [
+            160,
+            1,
+            1,
+            576
+          ],
+          type: "UINT8",
+          buffer: 19,
+          name: "MobilenetV2/expanded_conv_13/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.549658
+            ],
+            max: [
+              0.501936
+            ],
+            scale: [
+              0.00414
+            ],
+            zero_point: [
+              134
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            160
+          ],
+          type: "UINT8",
+          buffer: 84,
+          name: "MobilenetV2/expanded_conv_14/add",
+          quantization: {
+            min: [
+              -15.34693
+            ],
+            max: [
+              15.467771
+            ],
+            scale: [
+              0.120842
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            960
+          ],
+          type: "UINT8",
+          buffer: 86,
+          name: "MobilenetV2/expanded_conv_14/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            960
+          ],
+          type: "INT32",
+          buffer: 90,
+          name: "MobilenetV2/expanded_conv_14/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.003608
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            960
+          ],
+          type: "UINT8",
+          buffer: 167,
+          name: "MobilenetV2/expanded_conv_14/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -14.483976
+            ],
+            max: [
+              24.469715
+            ],
+            scale: [
+              0.153361
+            ],
+            zero_point: [
+              95
+            ]
+          }
+        },
+        {
+          shape: [
+            960
+          ],
+          type: "INT32",
+          buffer: 17,
+          name: "MobilenetV2/expanded_conv_14/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000283
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            960
+          ],
+          type: "UINT8",
+          buffer: 87,
+          name: "MobilenetV2/expanded_conv_14/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            960,
+            1,
+            1,
+            160
+          ],
+          type: "UINT8",
+          buffer: 18,
+          name: "MobilenetV2/expanded_conv_14/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.345011
+            ],
+            max: [
+              0.344767
+            ],
+            scale: [
+              0.002716
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            160
+          ],
+          type: "INT32",
+          buffer: 15,
+          name: "MobilenetV2/expanded_conv_14/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000123
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            160
+          ],
+          type: "UINT8",
+          buffer: 85,
+          name: "MobilenetV2/expanded_conv_14/project/add_fold",
+          quantization: {
+            min: [
+              -10.72669
+            ],
+            max: [
+              11.155759
+            ],
+            scale: [
+              0.085814
+            ],
+            zero_point: [
+              125
+            ]
+          }
+        },
+        {
+          shape: [
+            160,
+            1,
+            1,
+            960
+          ],
+          type: "UINT8",
+          buffer: 16,
+          name: "MobilenetV2/expanded_conv_14/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.743566
+            ],
+            max: [
+              0.582
+            ],
+            scale: [
+              0.005219
+            ],
+            zero_point: [
+              143
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            160
+          ],
+          type: "UINT8",
+          buffer: 162,
+          name: "MobilenetV2/expanded_conv_15/add",
+          quantization: {
+            min: [
+              -24.947773
+            ],
+            max: [
+              25.144213
+            ],
+            scale: [
+              0.196439
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            960
+          ],
+          type: "UINT8",
+          buffer: 161,
+          name: "MobilenetV2/expanded_conv_15/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            960
+          ],
+          type: "INT32",
+          buffer: 12,
+          name: "MobilenetV2/expanded_conv_15/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.005083
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            960
+          ],
+          type: "UINT8",
+          buffer: 13,
+          name: "MobilenetV2/expanded_conv_15/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -15.132926
+            ],
+            max: [
+              39.735889
+            ],
+            scale: [
+              0.216019
+            ],
+            zero_point: [
+              71
+            ]
+          }
+        },
+        {
+          shape: [
+            960
+          ],
+          type: "INT32",
+          buffer: 34,
+          name: "MobilenetV2/expanded_conv_15/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000173
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            960
+          ],
+          type: "UINT8",
+          buffer: 83,
+          name: "MobilenetV2/expanded_conv_15/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            960,
+            1,
+            1,
+            160
+          ],
+          type: "UINT8",
+          buffer: 14,
+          name: "MobilenetV2/expanded_conv_15/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.17498
+            ],
+            max: [
+              0.189238
+            ],
+            scale: [
+              0.001434
+            ],
+            zero_point: [
+              123
+            ]
+          }
+        },
+        {
+          shape: [
+            160
+          ],
+          type: "INT32",
+          buffer: 119,
+          name: "MobilenetV2/expanded_conv_15/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000286
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            160
+          ],
+          type: "UINT8",
+          buffer: 137,
+          name: "MobilenetV2/expanded_conv_15/project/add_fold",
+          quantization: {
+            min: [
+              -19.243229
+            ],
+            max: [
+              19.394749
+            ],
+            scale: [
+              0.151521
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            160,
+            1,
+            1,
+            960
+          ],
+          type: "UINT8",
+          buffer: 11,
+          name: "MobilenetV2/expanded_conv_15/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.607606
+            ],
+            max: [
+              1.484662
+            ],
+            scale: [
+              0.012174
+            ],
+            zero_point: [
+              133
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            960
+          ],
+          type: "UINT8",
+          buffer: 82,
+          name: "MobilenetV2/expanded_conv_16/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            960
+          ],
+          type: "INT32",
+          buffer: 7,
+          name: "MobilenetV2/expanded_conv_16/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.007404
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            960
+          ],
+          type: "UINT8",
+          buffer: 8,
+          name: "MobilenetV2/expanded_conv_16/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -37.518543
+            ],
+            max: [
+              42.409363
+            ],
+            scale: [
+              0.314677
+            ],
+            zero_point: [
+              120
+            ]
+          }
+        },
+        {
+          shape: [
+            960
+          ],
+          type: "INT32",
+          buffer: 9,
+          name: "MobilenetV2/expanded_conv_16/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000291
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            960
+          ],
+          type: "UINT8",
+          buffer: 141,
+          name: "MobilenetV2/expanded_conv_16/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            960,
+            1,
+            1,
+            160
+          ],
+          type: "UINT8",
+          buffer: 10,
+          name: "MobilenetV2/expanded_conv_16/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.165758
+            ],
+            max: [
+              0.210595
+            ],
+            scale: [
+              0.001482
+            ],
+            zero_point: [
+              113
+            ]
+          }
+        },
+        {
+          shape: [
+            320
+          ],
+          type: "INT32",
+          buffer: 4,
+          name: "MobilenetV2/expanded_conv_16/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000096
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            7,
+            7,
+            320
+          ],
+          type: "UINT8",
+          buffer: 81,
+          name: "MobilenetV2/expanded_conv_16/project/add_fold",
+          quantization: {
+            min: [
+              -13.661077
+            ],
+            max: [
+              16.113066
+            ],
+            scale: [
+              0.116761
+            ],
+            zero_point: [
+              117
+            ]
+          }
+        },
+        {
+          shape: [
+            320,
+            1,
+            1,
+            960
+          ],
+          type: "UINT8",
+          buffer: 5,
+          name: "MobilenetV2/expanded_conv_16/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.543387
+            ],
+            max: [
+              0.49061
+            ],
+            scale: [
+              0.004071
+            ],
+            zero_point: [
+              134
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            24
+          ],
+          type: "UINT8",
+          buffer: 157,
+          name: "MobilenetV2/expanded_conv_2/add",
+          quantization: {
+            min: [
+              -38.859558
+            ],
+            max: [
+              39.165543
+            ],
+            scale: [
+              0.305981
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            144
+          ],
+          type: "UINT8",
+          buffer: 123,
+          name: "MobilenetV2/expanded_conv_2/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            144
+          ],
+          type: "INT32",
+          buffer: 146,
+          name: "MobilenetV2/expanded_conv_2/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.002677
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            144
+          ],
+          type: "UINT8",
+          buffer: 68,
+          name: "MobilenetV2/expanded_conv_2/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -5.645245
+            ],
+            max: [
+              23.252253
+            ],
+            scale: [
+              0.11377
+            ],
+            zero_point: [
+              51
+            ]
+          }
+        },
+        {
+          shape: [
+            144
+          ],
+          type: "INT32",
+          buffer: 69,
+          name: "MobilenetV2/expanded_conv_2/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000632
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            144
+          ],
+          type: "UINT8",
+          buffer: 125,
+          name: "MobilenetV2/expanded_conv_2/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            144,
+            1,
+            1,
+            24
+          ],
+          type: "UINT8",
+          buffer: 126,
+          name: "MobilenetV2/expanded_conv_2/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.335389
+            ],
+            max: [
+              0.30695
+            ],
+            scale: [
+              0.002529
+            ],
+            zero_point: [
+              134
+            ]
+          }
+        },
+        {
+          shape: [
+            24
+          ],
+          type: "INT32",
+          buffer: 67,
+          name: "MobilenetV2/expanded_conv_2/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000433
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            24
+          ],
+          type: "UINT8",
+          buffer: 121,
+          name: "MobilenetV2/expanded_conv_2/project/add_fold",
+          quantization: {
+            min: [
+              -35.341789
+            ],
+            max: [
+              36.183262
+            ],
+            scale: [
+              0.28049
+            ],
+            zero_point: [
+              126
+            ]
+          }
+        },
+        {
+          shape: [
+            24,
+            1,
+            1,
+            144
+          ],
+          type: "UINT8",
+          buffer: 145,
+          name: "MobilenetV2/expanded_conv_2/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.996388
+            ],
+            max: [
+              2.677194
+            ],
+            scale: [
+              0.0184
+            ],
+            zero_point: [
+              109
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            144
+          ],
+          type: "UINT8",
+          buffer: 118,
+          name: "MobilenetV2/expanded_conv_3/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            144
+          ],
+          type: "INT32",
+          buffer: 64,
+          name: "MobilenetV2/expanded_conv_3/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.00056
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            144
+          ],
+          type: "UINT8",
+          buffer: 65,
+          name: "MobilenetV2/expanded_conv_3/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -3.493103
+            ],
+            max: [
+              2.556216
+            ],
+            scale: [
+              0.023816
+            ],
+            zero_point: [
+              148
+            ]
+          }
+        },
+        {
+          shape: [
+            144
+          ],
+          type: "INT32",
+          buffer: 66,
+          name: "MobilenetV2/expanded_conv_3/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000709
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            56,
+            56,
+            144
+          ],
+          type: "UINT8",
+          buffer: 120,
+          name: "MobilenetV2/expanded_conv_3/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            144,
+            1,
+            1,
+            24
+          ],
+          type: "UINT8",
+          buffer: 140,
+          name: "MobilenetV2/expanded_conv_3/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.29398
+            ],
+            max: [
+              0.294456
+            ],
+            scale: [
+              0.002317
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            32
+          ],
+          type: "INT32",
+          buffer: 62,
+          name: "MobilenetV2/expanded_conv_3/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000369
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            32
+          ],
+          type: "UINT8",
+          buffer: 116,
+          name: "MobilenetV2/expanded_conv_3/project/add_fold",
+          quantization: {
+            min: [
+              -29.658419
+            ],
+            max: [
+              25.951115
+            ],
+            scale: [
+              0.218077
+            ],
+            zero_point: [
+              136
+            ]
+          }
+        },
+        {
+          shape: [
+            32,
+            1,
+            1,
+            144
+          ],
+          type: "UINT8",
+          buffer: 63,
+          name: "MobilenetV2/expanded_conv_3/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.820963
+            ],
+            max: [
+              2.167287
+            ],
+            scale: [
+              0.015702
+            ],
+            zero_point: [
+              117
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            32
+          ],
+          type: "UINT8",
+          buffer: 151,
+          name: "MobilenetV2/expanded_conv_4/add",
+          quantization: {
+            min: [
+              -35.406277
+            ],
+            max: [
+              30.018366
+            ],
+            scale: [
+              0.256567
+            ],
+            zero_point: [
+              138
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            192
+          ],
+          type: "UINT8",
+          buffer: 160,
+          name: "MobilenetV2/expanded_conv_4/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            192
+          ],
+          type: "INT32",
+          buffer: 104,
+          name: "MobilenetV2/expanded_conv_4/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.002222
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            192
+          ],
+          type: "UINT8",
+          buffer: 61,
+          name: "MobilenetV2/expanded_conv_4/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -10.069832
+            ],
+            max: [
+              13.91485
+            ],
+            scale: [
+              0.094428
+            ],
+            zero_point: [
+              108
+            ]
+          }
+        },
+        {
+          shape: [
+            192
+          ],
+          type: "INT32",
+          buffer: 110,
+          name: "MobilenetV2/expanded_conv_4/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000352
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            192
+          ],
+          type: "UINT8",
+          buffer: 155,
+          name: "MobilenetV2/expanded_conv_4/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            192,
+            1,
+            1,
+            32
+          ],
+          type: "UINT8",
+          buffer: 115,
+          name: "MobilenetV2/expanded_conv_4/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.210037
+            ],
+            max: [
+              0.200247
+            ],
+            scale: [
+              0.001615
+            ],
+            zero_point: [
+              131
+            ]
+          }
+        },
+        {
+          shape: [
+            32
+          ],
+          type: "INT32",
+          buffer: 163,
+          name: "MobilenetV2/expanded_conv_4/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000235
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            32
+          ],
+          type: "UINT8",
+          buffer: 117,
+          name: "MobilenetV2/expanded_conv_4/project/add_fold",
+          quantization: {
+            min: [
+              -28.949368
+            ],
+            max: [
+              23.40587
+            ],
+            scale: [
+              0.205315
+            ],
+            zero_point: [
+              141
+            ]
+          }
+        },
+        {
+          shape: [
+            32,
+            1,
+            1,
+            192
+          ],
+          type: "UINT8",
+          buffer: 60,
+          name: "MobilenetV2/expanded_conv_4/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.263234
+            ],
+            max: [
+              1.276742
+            ],
+            scale: [
+              0.01
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            32
+          ],
+          type: "UINT8",
+          buffer: 111,
+          name: "MobilenetV2/expanded_conv_5/add",
+          quantization: {
+            min: [
+              -41.762779
+            ],
+            max: [
+              37.122471
+            ],
+            scale: [
+              0.309354
+            ],
+            zero_point: [
+              135
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            192
+          ],
+          type: "UINT8",
+          buffer: 171,
+          name: "MobilenetV2/expanded_conv_5/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            192
+          ],
+          type: "INT32",
+          buffer: 58,
+          name: "MobilenetV2/expanded_conv_5/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.000709
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            192
+          ],
+          type: "UINT8",
+          buffer: 59,
+          name: "MobilenetV2/expanded_conv_5/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -3.811276
+            ],
+            max: [
+              3.848037
+            ],
+            scale: [
+              0.030155
+            ],
+            zero_point: [
+              127
+            ]
+          }
+        },
+        {
+          shape: [
+            192
+          ],
+          type: "INT32",
+          buffer: 136,
+          name: "MobilenetV2/expanded_conv_5/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000338
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            192
+          ],
+          type: "UINT8",
+          buffer: 169,
+          name: "MobilenetV2/expanded_conv_5/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            192,
+            1,
+            1,
+            32
+          ],
+          type: "UINT8",
+          buffer: 144,
+          name: "MobilenetV2/expanded_conv_5/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.162086
+            ],
+            max: [
+              0.172324
+            ],
+            scale: [
+              0.001317
+            ],
+            zero_point: [
+              124
+            ]
+          }
+        },
+        {
+          shape: [
+            32
+          ],
+          type: "INT32",
+          buffer: 56,
+          name: "MobilenetV2/expanded_conv_5/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000399
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            32
+          ],
+          type: "UINT8",
+          buffer: 112,
+          name: "MobilenetV2/expanded_conv_5/project/add_fold",
+          quantization: {
+            min: [
+              -26.370745
+            ],
+            max: [
+              28.300312
+            ],
+            scale: [
+              0.214396
+            ],
+            zero_point: [
+              123
+            ]
+          }
+        },
+        {
+          shape: [
+            32,
+            1,
+            1,
+            192
+          ],
+          type: "UINT8",
+          buffer: 57,
+          name: "MobilenetV2/expanded_conv_5/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -2.373718
+            ],
+            max: [
+              1.932858
+            ],
+            scale: [
+              0.016955
+            ],
+            zero_point: [
+              141
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            192
+          ],
+          type: "UINT8",
+          buffer: 108,
+          name: "MobilenetV2/expanded_conv_6/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            192
+          ],
+          type: "INT32",
+          buffer: 54,
+          name: "MobilenetV2/expanded_conv_6/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.000756
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            192
+          ],
+          type: "UINT8",
+          buffer: 55,
+          name: "MobilenetV2/expanded_conv_6/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.840997
+            ],
+            max: [
+              6.319932
+            ],
+            scale: [
+              0.03213
+            ],
+            zero_point: [
+              58
+            ]
+          }
+        },
+        {
+          shape: [
+            192
+          ],
+          type: "INT32",
+          buffer: 142,
+          name: "MobilenetV2/expanded_conv_6/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000605
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            28,
+            28,
+            192
+          ],
+          type: "UINT8",
+          buffer: 109,
+          name: "MobilenetV2/expanded_conv_6/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            192,
+            1,
+            1,
+            32
+          ],
+          type: "UINT8",
+          buffer: 154,
+          name: "MobilenetV2/expanded_conv_6/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.187041
+            ],
+            max: [
+              0.309893
+            ],
+            scale: [
+              0.001956
+            ],
+            zero_point: [
+              97
+            ]
+          }
+        },
+        {
+          shape: [
+            64
+          ],
+          type: "INT32",
+          buffer: 52,
+          name: "MobilenetV2/expanded_conv_6/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000249
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 159,
+          name: "MobilenetV2/expanded_conv_6/project/add_fold",
+          quantization: {
+            min: [
+              -24.19084
+            ],
+            max: [
+              25.158472
+            ],
+            scale: [
+              0.193527
+            ],
+            zero_point: [
+              125
+            ]
+          }
+        },
+        {
+          shape: [
+            64,
+            1,
+            1,
+            192
+          ],
+          type: "UINT8",
+          buffer: 53,
+          name: "MobilenetV2/expanded_conv_6/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.381604
+            ],
+            max: [
+              1.306964
+            ],
+            scale: [
+              0.010585
+            ],
+            zero_point: [
+              132
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 105,
+          name: "MobilenetV2/expanded_conv_7/add",
+          quantization: {
+            min: [
+              -25.272692
+            ],
+            max: [
+              25.075251
+            ],
+            scale: [
+              0.197443
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 106,
+          name: "MobilenetV2/expanded_conv_7/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 49,
+          name: "MobilenetV2/expanded_conv_7/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.002512
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            384
+          ],
+          type: "UINT8",
+          buffer: 50,
+          name: "MobilenetV2/expanded_conv_7/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -6.05155
+            ],
+            max: [
+              21.066311
+            ],
+            scale: [
+              0.106763
+            ],
+            zero_point: [
+              58
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 51,
+          name: "MobilenetV2/expanded_conv_7/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000211
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 107,
+          name: "MobilenetV2/expanded_conv_7/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384,
+            1,
+            1,
+            64
+          ],
+          type: "UINT8",
+          buffer: 168,
+          name: "MobilenetV2/expanded_conv_7/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.143151
+            ],
+            max: [
+              0.133502
+            ],
+            scale: [
+              0.001089
+            ],
+            zero_point: [
+              132
+            ]
+          }
+        },
+        {
+          shape: [
+            64
+          ],
+          type: "INT32",
+          buffer: 47,
+          name: "MobilenetV2/expanded_conv_7/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000186
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 156,
+          name: "MobilenetV2/expanded_conv_7/project/add_fold",
+          quantization: {
+            min: [
+              -25.565163
+            ],
+            max: [
+              21.334957
+            ],
+            scale: [
+              0.183922
+            ],
+            zero_point: [
+              139
+            ]
+          }
+        },
+        {
+          shape: [
+            64,
+            1,
+            1,
+            384
+          ],
+          type: "UINT8",
+          buffer: 48,
+          name: "MobilenetV2/expanded_conv_7/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.95794
+            ],
+            max: [
+              1.05159
+            ],
+            scale: [
+              0.007912
+            ],
+            zero_point: [
+              122
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 138,
+          name: "MobilenetV2/expanded_conv_8/add",
+          quantization: {
+            min: [
+              -27.189608
+            ],
+            max: [
+              24.940844
+            ],
+            scale: [
+              0.204433
+            ],
+            zero_point: [
+              133
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 103,
+          name: "MobilenetV2/expanded_conv_8/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 45,
+          name: "MobilenetV2/expanded_conv_8/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.001293
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            384
+          ],
+          type: "UINT8",
+          buffer: 46,
+          name: "MobilenetV2/expanded_conv_8/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -4.312061
+            ],
+            max: [
+              9.645587
+            ],
+            scale: [
+              0.054951
+            ],
+            zero_point: [
+              79
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 165,
+          name: "MobilenetV2/expanded_conv_8/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000244
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 166,
+          name: "MobilenetV2/expanded_conv_8/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384,
+            1,
+            1,
+            64
+          ],
+          type: "UINT8",
+          buffer: 114,
+          name: "MobilenetV2/expanded_conv_8/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.166096
+            ],
+            max: [
+              0.148143
+            ],
+            scale: [
+              0.001237
+            ],
+            zero_point: [
+              135
+            ]
+          }
+        },
+        {
+          shape: [
+            64
+          ],
+          type: "INT32",
+          buffer: 44,
+          name: "MobilenetV2/expanded_conv_8/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000239
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 102,
+          name: "MobilenetV2/expanded_conv_8/project/add_fold",
+          quantization: {
+            min: [
+              -18.659485
+            ],
+            max: [
+              17.116219
+            ],
+            scale: [
+              0.140297
+            ],
+            zero_point: [
+              133
+            ]
+          }
+        },
+        {
+          shape: [
+            64,
+            1,
+            1,
+            384
+          ],
+          type: "UINT8",
+          buffer: 134,
+          name: "MobilenetV2/expanded_conv_8/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.372634
+            ],
+            max: [
+              1.209036
+            ],
+            scale: [
+              0.010164
+            ],
+            zero_point: [
+              136
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 99,
+          name: "MobilenetV2/expanded_conv_9/add",
+          quantization: {
+            min: [
+              -30.230587
+            ],
+            max: [
+              26.038025
+            ],
+            scale: [
+              0.220661
+            ],
+            zero_point: [
+              137
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 101,
+          name: "MobilenetV2/expanded_conv_9/depthwise/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 40,
+          name: "MobilenetV2/expanded_conv_9/depthwise/depthwise_Fold_bias",
+          quantization: {
+            scale: [
+              0.001062
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            3,
+            3,
+            384
+          ],
+          type: "UINT8",
+          buffer: 41,
+          name: "MobilenetV2/expanded_conv_9/depthwise/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -4.937639
+            ],
+            max: [
+              6.522334
+            ],
+            scale: [
+              0.045118
+            ],
+            zero_point: [
+              110
+            ]
+          }
+        },
+        {
+          shape: [
+            384
+          ],
+          type: "INT32",
+          buffer: 42,
+          name: "MobilenetV2/expanded_conv_9/expand/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000263
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            384
+          ],
+          type: "UINT8",
+          buffer: 135,
+          name: "MobilenetV2/expanded_conv_9/expand/Relu6",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              5.999762
+            ],
+            scale: [
+              0.023528
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            384,
+            1,
+            1,
+            64
+          ],
+          type: "UINT8",
+          buffer: 43,
+          name: "MobilenetV2/expanded_conv_9/expand/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -0.152922
+            ],
+            max: [
+              0.173712
+            ],
+            scale: [
+              0.001286
+            ],
+            zero_point: [
+              120
+            ]
+          }
+        },
+        {
+          shape: [
+            64
+          ],
+          type: "INT32",
+          buffer: 93,
+          name: "MobilenetV2/expanded_conv_9/project/Conv2D_Fold_bias",
+          quantization: {
+            scale: [
+              0.000212
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            14,
+            14,
+            64
+          ],
+          type: "UINT8",
+          buffer: 100,
+          name: "MobilenetV2/expanded_conv_9/project/add_fold",
+          quantization: {
+            min: [
+              -15.676367
+            ],
+            max: [
+              16.049614
+            ],
+            scale: [
+              0.124416
+            ],
+            zero_point: [
+              126
+            ]
+          }
+        },
+        {
+          shape: [
+            64,
+            1,
+            1,
+            384
+          ],
+          type: "UINT8",
+          buffer: 39,
+          name: "MobilenetV2/expanded_conv_9/project/weights_quant/FakeQuantWithMinMaxVars",
+          quantization: {
+            min: [
+              -1.07749
+            ],
+            max: [
+              1.208906
+            ],
+            scale: [
+              0.009002
+            ],
+            zero_point: [
+              121
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            224,
+            224,
+            3
+          ],
+          type: "UINT8",
+          buffer: 172,
+          name: "map/TensorArrayStack/TensorArrayGatherV3",
+          quantization: {
+            min: [
+              -1.0
+            ],
+            max: [
+              0.992188
+            ],
+            scale: [
+              0.007812
+            ],
+            zero_point: [
+              128
+            ]
+          }
+        },
+        {
+          shape: [
+            1,
+            965
+          ],
+          type: "UINT8",
+          buffer: 113,
+          name: "prediction",
+          quantization: {
+            min: [
+              0.0
+            ],
+            max: [
+              0.996094
+            ],
+            scale: [
+              0.003906
+            ],
+            zero_point: [
+              0
+            ]
+          }
+        }
+      ],
+      inputs: [
+        170
+      ],
+      outputs: [
+        171
+      ],
+      operators: [
+        {
+          opcode_index: 2,
+          inputs: [
+            170,
+            6,
+            4
+          ],
+          outputs: [
+            5
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 2,
+            stride_h: 2
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            5,
+            12,
+            11
+          ],
+          outputs: [
+            10
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            10,
+            15,
+            13
+          ],
+          outputs: [
+            14
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            14,
+            21,
+            19
+          ],
+          outputs: [
+            20
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            20,
+            18,
+            17
+          ],
+          outputs: [
+            16
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 2,
+            stride_h: 2,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            16,
+            24,
+            22
+          ],
+          outputs: [
+            23
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            23,
+            98,
+            96
+          ],
+          outputs: [
+            97
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            97,
+            95,
+            94
+          ],
+          outputs: [
+            93
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            93,
+            101,
+            99
+          ],
+          outputs: [
+            100
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            100,
+            23
+          ],
+          outputs: [
+            92
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            92,
+            107,
+            105
+          ],
+          outputs: [
+            106
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            106,
+            104,
+            103
+          ],
+          outputs: [
+            102
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 2,
+            stride_h: 2,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            102,
+            110,
+            108
+          ],
+          outputs: [
+            109
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            109,
+            117,
+            115
+          ],
+          outputs: [
+            116
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            116,
+            114,
+            113
+          ],
+          outputs: [
+            112
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            112,
+            120,
+            118
+          ],
+          outputs: [
+            119
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            119,
+            109
+          ],
+          outputs: [
+            111
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            111,
+            127,
+            125
+          ],
+          outputs: [
+            126
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            126,
+            124,
+            123
+          ],
+          outputs: [
+            122
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            122,
+            130,
+            128
+          ],
+          outputs: [
+            129
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            129,
+            111
+          ],
+          outputs: [
+            121
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            121,
+            136,
+            134
+          ],
+          outputs: [
+            135
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            135,
+            133,
+            132
+          ],
+          outputs: [
+            131
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 2,
+            stride_h: 2,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            131,
+            139,
+            137
+          ],
+          outputs: [
+            138
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            138,
+            146,
+            144
+          ],
+          outputs: [
+            145
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            145,
+            143,
+            142
+          ],
+          outputs: [
+            141
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            141,
+            149,
+            147
+          ],
+          outputs: [
+            148
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            148,
+            138
+          ],
+          outputs: [
+            140
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            140,
+            156,
+            154
+          ],
+          outputs: [
+            155
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            155,
+            153,
+            152
+          ],
+          outputs: [
+            151
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            151,
+            159,
+            157
+          ],
+          outputs: [
+            158
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            158,
+            140
+          ],
+          outputs: [
+            150
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            150,
+            166,
+            164
+          ],
+          outputs: [
+            165
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            165,
+            163,
+            162
+          ],
+          outputs: [
+            161
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            161,
+            169,
+            167
+          ],
+          outputs: [
+            168
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            168,
+            150
+          ],
+          outputs: [
+            160
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            160,
+            30,
+            28
+          ],
+          outputs: [
+            29
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            29,
+            27,
+            26
+          ],
+          outputs: [
+            25
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            25,
+            33,
+            31
+          ],
+          outputs: [
+            32
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            32,
+            40,
+            38
+          ],
+          outputs: [
+            39
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            39,
+            37,
+            36
+          ],
+          outputs: [
+            35
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            35,
+            43,
+            41
+          ],
+          outputs: [
+            42
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            42,
+            32
+          ],
+          outputs: [
+            34
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            34,
+            50,
+            48
+          ],
+          outputs: [
+            49
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            49,
+            47,
+            46
+          ],
+          outputs: [
+            45
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            45,
+            53,
+            51
+          ],
+          outputs: [
+            52
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            52,
+            34
+          ],
+          outputs: [
+            44
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            44,
+            59,
+            57
+          ],
+          outputs: [
+            58
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            58,
+            56,
+            55
+          ],
+          outputs: [
+            54
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 2,
+            stride_h: 2,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            54,
+            62,
+            60
+          ],
+          outputs: [
+            61
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            61,
+            69,
+            67
+          ],
+          outputs: [
+            68
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            68,
+            66,
+            65
+          ],
+          outputs: [
+            64
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            64,
+            72,
+            70
+          ],
+          outputs: [
+            71
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            71,
+            61
+          ],
+          outputs: [
+            63
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            63,
+            79,
+            77
+          ],
+          outputs: [
+            78
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            78,
+            76,
+            75
+          ],
+          outputs: [
+            74
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            74,
+            82,
+            80
+          ],
+          outputs: [
+            81
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          inputs: [
+            81,
+            63
+          ],
+          outputs: [
+            73
+          ],
+          builtin_options_type: "AddOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            73,
+            88,
+            86
+          ],
+          outputs: [
+            87
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 3,
+          inputs: [
+            87,
+            85,
+            84
+          ],
+          outputs: [
+            83
+          ],
+          builtin_options_type: "DepthwiseConv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1,
+            depth_multiplier: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            83,
+            91,
+            89
+          ],
+          outputs: [
+            90
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 2,
+          inputs: [
+            90,
+            9,
+            7
+          ],
+          outputs: [
+            8
+          ],
+          builtin_options_type: "Conv2DOptions",
+          builtin_options: {
+            stride_w: 1,
+            stride_h: 1
+          }
+        },
+        {
+          opcode_index: 1,
+          inputs: [
+            8
+          ],
+          outputs: [
+            0
+          ],
+          builtin_options_type: "Pool2DOptions",
+          builtin_options: {
+            padding: "VALID",
+            stride_w: 2,
+            stride_h: 2,
+            filter_width: 7,
+            filter_height: 7
+          }
+        },
+        {
+          opcode_index: 4,
+          inputs: [
+            0,
+            3,
+            2
+          ],
+          outputs: [
+            1
+          ],
+          builtin_options_type: "FullyConnectedOptions",
+          builtin_options: {
+          }
+        },
+        {
+          opcode_index: 5,
+          inputs: [
+            1
+          ],
+          outputs: [
+            171
+          ],
+          builtin_options_type: "SoftmaxOptions",
+          builtin_options: {
+            beta: 1.0
+          }
+        }
+      ]
+    }
+  ],
+  description: "TOCO Converted.",
+  buffers: [
+    {
+    },
+    {
+      data: [
+        68,
+        245,
+        255,
+        255,
