@@ -1,4 +1,4 @@
-model convert1
+## model convert1
 (saved_model.pb -> .tflite -> _edgetpu.tflite)
 
 1. tensorflow model
@@ -24,7 +24,7 @@ model convert1
 ??? (in tensorflow) layer+dim 
 #fake quantize layer -> not supported in openvino 
 
-model convert2
+## model convert2
 (saved_model.pb -> .xml /.bin)
 
 mo_tf.py [1 28 28 1] ([-1 28 28 1])
