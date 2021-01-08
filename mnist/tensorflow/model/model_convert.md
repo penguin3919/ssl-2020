@@ -34,6 +34,12 @@ saved_model.pb(saved_model_X_quant)
 
 saved_model(saved_model/variable, saved_model/saved_model.pb, ...)
 
+Openvino 모델 변환
+Tensorflow quantize 한 것으로 mo_tf.py 돌리는 건 됐는데
+막상 예제를 만들어서 사용하려고 하면 fake quantize를 지원하지 않는다고
+실행이 되지 않는다.
+
+Openvino에도 fake quantize 란게 있는데 같은건지 봐야하낟
 
 
 
