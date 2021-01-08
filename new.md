@@ -6,3 +6,6 @@ Model | Frame
 ------|--------
 mnist|tensorflow
 mnist|openvino
+
+-[ ] !ADD quantization.py
+-[ ] !ADD convert.py
