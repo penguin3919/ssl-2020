@@ -1,0 +1,1 @@
+`gzip -dk file.gz`
