@@ -1,0 +1,2 @@
+deploy3.py -> train data, label 읽어오기 
+deploy4.py -> eval...... ^^ -> 12/21 evaluate -> include_optimizer = True 로 바꿔서 image_classfication 에서 model 다시 만듦
