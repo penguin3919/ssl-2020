@@ -7,3 +7,4 @@ enum  	ePrecision : uint8_t {
 }
 
 https://docs.openvinotoolkit.org/2021.2/api_references.html
+https://docs.openvinotoolkit.org/2021.2/ie__precision_8hpp_source.html
