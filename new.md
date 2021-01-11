@@ -8,8 +8,8 @@ Model | Frame
 mnist|tensorflow
 mnist|openvino
 
-- [ ] !ADD quantization.py
-- [ ] !ADD convert.py
+- [x] !ADD quantization.py
+- [x] !ADD convert.py
 
 ```C
 #include <stdio.h>
