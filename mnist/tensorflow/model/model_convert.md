@@ -5,7 +5,7 @@
 (saved_model.pb)
 
 2. post quantization
-!ADD(quantize -.py)
+- [x] !ADD(quantize -.py)
 
 3. tensorflow lite convert(in tensorflow)
 (convert -> DEFAULT option -> quantize weight activation)
