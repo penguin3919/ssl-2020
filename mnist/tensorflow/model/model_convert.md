@@ -13,7 +13,7 @@
 
 4. edgetpu compiler ( quantized model only) (in linux)
 (mnist_edgetpu.tflite)
-(result -> !ADD log file) 
+- [x] (result -> !ADD log file) 
 
 *compare edgetpu model <-> non-tpu model 
 
