@@ -1,11 +1,10 @@
 //mnist_openvino
+//main99.cpp
 
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <samples/common.hpp>
-#include <samples/slog.hpp>
-#include <ngraph/ngraph.hpp>
 
 using namespace InferenceEngine;
 
@@ -62,7 +61,6 @@ int main(int argc, char* argv[]){
 
 	file.read(reinterpret_cast<char *>(&magic_number), sizeof(magic_number));
 	magic_number=reverseInt(magic_number);
-	//printf("%d\n",magic_number);
 	file.read(reinterpret_cast<char *>(&number_of_images), sizeof(number_of_images));
 	number_of_images=reverseInt(number_of_images);
 	file.read(reinterpret_cast<char *>(&n_rows), sizeof(n_rows));
@@ -97,11 +95,10 @@ int main(int argc, char* argv[]){
 	}
 
 	//prepare_input_blobs
-        slog::info << "Preparing input blobs" << slog::endl;
+        
 
         /** Taking information about all topology inputs **/
         InputsDataMap inputsInfo(network.getInputsInfo());
-	//printf("inputs: %d\n",inputsInfo.size());
 
         if (inputsInfo.size() != 1 && inputsInfo.size() != 2) throw std::logic_error("Sample supports topologies only with 1 or 2 inputs");
         std::string imageInputName;
@@ -119,7 +116,7 @@ int main(int argc, char* argv[]){
 
                 inputInfo = item.second;
 
-                slog::info << "Batch size is " << std::to_string(network.getBatchSize()) << slog::endl;
+                
                 Precision inputPrecision = Precision::FP32;
                 item.second->setPrecision(inputPrecision);
             } 
@@ -157,22 +154,14 @@ int main(int argc, char* argv[]){
 
 	size_t num_channels=mimage->getTensorDesc().getDims()[1];
 	size_t image_size=mimage->getTensorDesc().getDims()[3]*mimage->getTensorDesc().getDims()[2];
-
-	printf("channel: %d, image_size: %d\n",num_channels,image_size);
 	float* data=minputHolder.as<float*>();
-
-       
+	
             for (size_t pid = 0; pid < image_size; pid++) {
                     /**          [images stride + channels stride + pixel id ] all in bytes            **/
                     data[pid] = imagedata[num].get()[pid];   
             }
-        
-printf("num:%d\n",num);
-
 	//creating input blob
 	infer_request.Infer();
-printf("hi\n");	
-
 	const Blob::Ptr output_blob=infer_request.GetBlob(output_name);
 	MemoryBlob::CPtr moutput=as<MemoryBlob>(output_blob);
 	if(!moutput){printf("cast output to memory blob failed\n");}
@@ -192,12 +181,7 @@ printf("hi\n");
 	std::cout<<"detection[0]:"<<tofp16(detection[9])<<std::endl;
 
 	//input_data_close
-//	file.close();
-/*	for(int d=0;d<10000;d++)
-	{
-	imagedata[d].reset();
-	}
-*/
+	file.close();
 	return 0;
 }
 
