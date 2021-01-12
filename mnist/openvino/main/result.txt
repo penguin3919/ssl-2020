@@ -1,4 +1,5 @@
 main9.cpp
+result: 7 ( O )
 
 outputnameStatefulPartitionedCall/mnist/dense_1/Softmax
 detection[0]:0
