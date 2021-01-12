@@ -177,19 +177,9 @@ int main(int argc, char* argv[]){
 	auto moutputHolder=moutput->rmap();
 	auto* detection=moutputHolder.as<const PrecisionTrait<Precision::FP16>::value_type*>();
 	tofp16(detection);
-	/*
-	std::cout<<"detection[0]:"<<tofp16(detection[0])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[1])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[2])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[3])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[4])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[5])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[6])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[7])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[8])<<std::endl;
-	std::cout<<"detection[0]:"<<tofp16(detection[9])<<std::endl;
-	*/
-
+	for(int dd=0;dd<10;dd++){
+		std::cout<<"detection["<<dd<<"]:"<<detection[dd]<<std::endl;
+	}
 	//input_data_close
 	file.close();
 	return 0;
