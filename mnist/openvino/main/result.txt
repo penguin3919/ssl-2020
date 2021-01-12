@@ -1,0 +1,11 @@
+outputnameStatefulPartitionedCall/mnist/dense_1/Softmax
+detection[0]:0
+detection[1]:0
+detection[2]:0
+detection[3]:6.10352e-05
+detection[4]:0
+detection[5]:0
+detection[6]:0
+detection[7]:1
+detection[8]:0
+detection[9]:0
