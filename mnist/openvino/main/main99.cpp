@@ -178,7 +178,6 @@ printf("hi\n");
 	if(!moutput){printf("cast output to memory blob failed\n");}
 
 	auto moutputHolder=moutput->rmap();
-	//const short unsigned int* detection=moutputHolder.as<const PrecisionTrait<Precision::U16>::value_type*>();
 	auto* detection=moutputHolder.as<const PrecisionTrait<Precision::FP16>::value_type*>();
 	
 	std::cout<<"detection[0]:"<<tofp16(detection[0])<<std::endl;
