@@ -17,23 +17,31 @@ int reverseInt(int i) {
     return (static_cast<int>(ch1) << 24) + (static_cast<int>(ch2) << 16) + (static_cast<int>(ch3) << 8) + ch4;
 }
 
-float tofp16(unsigned short int i){
-	unsigned char sign=(i>>14)&1;
-	int expo=((i>>10)&31)-15;
-	float mant=1;
-	int  temp=i;
-	temp=temp%1024;
-	for(int d=9;d>-1;d--)
+float* tofp16(unsigned short int* i){
+	float arr[10]={0};
+	unsigned char sign;
+	int expo;
+	float mant;
+	int  temp;
+	for(int k=0;k<10;k++)
 	{
-		mant+=((temp>>d)&1)*(1>>(10-d));
+		sign=(i[k]>>14)&1;
+		expo=((i[k]>>10)&31)-15;
+		mant=1;
+		temp=i[k]%1024;
+		for(int d=9;d>-1;d--)
+		{
+			mant+=((temp>>d)&1)*(1>>(10-d));
+		}
+		if(expo==16){std::cout<<"Nan or Inf or 0.00+"<<std::endl;arr[k]=-1;continue;}
+		if(expo==-15) 
+		{
+			expo=-14;
+			mant-=1;
+		}
+		arr[k]=pow(2,expo)*mant*pow(-1,sign+2);
 	}
-	if(expo==16){std::cout<<"Nan or Inf or 0.00+"<<std::endl;return -1;}
-	if(expo==-15) 
-	{
-		expo=-14;
-		mant-=1;
-	}
-	return pow(2,expo)*mant*pow(-1,sign+2);
+	return arr;
 }
 
 int main(int argc, char* argv[]){
@@ -168,7 +176,8 @@ int main(int argc, char* argv[]){
 
 	auto moutputHolder=moutput->rmap();
 	auto* detection=moutputHolder.as<const PrecisionTrait<Precision::FP16>::value_type*>();
-	
+	tofp16(detection);
+	/*
 	std::cout<<"detection[0]:"<<tofp16(detection[0])<<std::endl;
 	std::cout<<"detection[0]:"<<tofp16(detection[1])<<std::endl;
 	std::cout<<"detection[0]:"<<tofp16(detection[2])<<std::endl;
@@ -179,6 +188,7 @@ int main(int argc, char* argv[]){
 	std::cout<<"detection[0]:"<<tofp16(detection[7])<<std::endl;
 	std::cout<<"detection[0]:"<<tofp16(detection[8])<<std::endl;
 	std::cout<<"detection[0]:"<<tofp16(detection[9])<<std::endl;
+	*/
 
 	//input_data_close
 	file.close();
