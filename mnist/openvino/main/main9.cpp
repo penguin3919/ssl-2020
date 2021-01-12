@@ -1,5 +1,5 @@
 //mnist_openvino
-//main99.cpp
+//main9.cpp
 
 #include <iostream>
 #include <string>
