@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense_1/BiasAdd" out_port_id="0"/>
+		<IR id="57" name="StatefulPartitionedCall/mnist/quant_dense_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense/MatMul" out_port_id="0"/>
+		<IR id="39" name="StatefulPartitionedCall/mnist/quant_dense/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_max_pooling2d_1/MaxPool" out_port_id="0"/>
+		<IR id="29" name="StatefulPartitionedCall/mnist/quant_max_pooling2d_1/MaxPool/Transpose" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quantize_layer/AllValuesQuantize/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="5" name="StatefulPartitionedCall/mnist/quantize_layer/AllValuesQuantize/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d/Relu" out_port_id="0"/>
+		<IR id="10" name="StatefulPartitionedCall/mnist/quant_conv2d/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense_1/LastValueQuant/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="54" name="StatefulPartitionedCall/mnist/quant_dense_1/LastValueQuant/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d_1/Relu" out_port_id="0"/>
+		<IR id="21" name="StatefulPartitionedCall/mnist/quant_conv2d_1/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense/BiasAdd" out_port_id="0"/>
+		<IR id="41" name="StatefulPartitionedCall/mnist/quant_dense/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d_1/Conv2D" out_port_id="0"/>
+		<IR id="18" name="StatefulPartitionedCall/mnist/quant_conv2d_1/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense_1/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="62" name="StatefulPartitionedCall/mnist/quant_dense_1/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d_1/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="26" name="StatefulPartitionedCall/mnist/quant_conv2d_1/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d_1/BiasAdd" out_port_id="0"/>
+		<IR id="20" name="StatefulPartitionedCall/mnist/quant_conv2d_1/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_flatten/Reshape" out_port_id="0"/>
+		<IR id="31" name="StatefulPartitionedCall/mnist/quant_flatten/Reshape" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense/LastValueQuant/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="38" name="StatefulPartitionedCall/mnist/quant_dense/LastValueQuant/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="15" name="StatefulPartitionedCall/mnist/quant_conv2d/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense_1/MatMul" out_port_id="0"/>
+		<IR id="55" name="StatefulPartitionedCall/mnist/quant_dense_1/MatMul" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_flatten/Const" out_port_id="0"/>
+		<IR id="30" name="StatefulPartitionedCall/mnist/quant_flatten/Reshape/Cast_13163_const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d_1/LastValueQuant/FakeQuantWithMinMaxVarsPerChannel" out_port_id="0"/>
+		<IR id="17" name="StatefulPartitionedCall/mnist/quant_conv2d_1/LastValueQuant/FakeQuantWithMinMaxVarsPerChannel/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Func/StatefulPartitionedCall/input/_0" out_port_id="0"/>
+		<IR id="0" name="input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="input_1" out_port_id="0"/>
+		<IR id="0" name="input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense/Relu" out_port_id="0"/>
+		<IR id="42" name="StatefulPartitionedCall/mnist/quant_dense/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dropout/Identity" out_port_id="0"/>
+		<IR id="47" name="StatefulPartitionedCall/mnist/quant_dense/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="0"/>
+		<IR id="47" name="StatefulPartitionedCall/mnist/quant_dense/MovingAvgQuantize/FakeQuantWithMinMaxVars" out_port_id="5"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d/Conv2D" out_port_id="0"/>
+		<IR id="7" name="StatefulPartitionedCall/mnist/quant_conv2d/Conv2D" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_max_pooling2d/MaxPool" out_port_id="0"/>
+		<IR id="16" name="StatefulPartitionedCall/mnist/quant_max_pooling2d/MaxPool" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Identity" out_port_id="0"/>
+		<IR id="63" name="StatefulPartitionedCall/mnist/quant_dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="Func/StatefulPartitionedCall/output/_27" out_port_id="0"/>
+		<IR id="63" name="StatefulPartitionedCall/mnist/quant_dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/Identity" out_port_id="0"/>
+		<IR id="63" name="StatefulPartitionedCall/mnist/quant_dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_dense_1/Softmax" out_port_id="0"/>
+		<IR id="63" name="StatefulPartitionedCall/mnist/quant_dense_1/Softmax" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d/BiasAdd" out_port_id="0"/>
+		<IR id="9" name="StatefulPartitionedCall/mnist/quant_conv2d/BiasAdd/Add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="StatefulPartitionedCall/mnist/quant_conv2d/LastValueQuant/FakeQuantWithMinMaxVarsPerChannel" out_port_id="0"/>
+		<IR id="6" name="StatefulPartitionedCall/mnist/quant_conv2d/LastValueQuant/FakeQuantWithMinMaxVarsPerChannel/Output_0/Data__const" out_port_id="1"/>
+	</map>
+</mapping>
