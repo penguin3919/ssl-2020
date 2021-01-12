@@ -1,3 +1,5 @@
+main9.cpp
+
 outputnameStatefulPartitionedCall/mnist/dense_1/Softmax
 detection[0]:0
 detection[1]:0
