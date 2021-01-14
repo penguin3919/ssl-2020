@@ -1,6 +1,6 @@
 //mnist_openvino
 //main7.cpp
-//check accuracy
+//check accuracy(input-> U8/build7)
 
 #include <iostream>
 #include <string>
