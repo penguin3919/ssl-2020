@@ -1,6 +1,7 @@
 //mnist_openvino
 //main77.cpp
 //no /255 
+//build8, FP32 & normalize X
 
 #include <iostream>
 #include <string>
