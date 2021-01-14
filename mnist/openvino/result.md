@@ -1,1 +1,1 @@
-![hello](/model_result.jpg)
+![hello](./model_result.JPG)
