@@ -30,6 +30,11 @@
 mo_tf.py [1 28 28 1] ([-1 28 28 1])
 (set N W H C order in older openvino version???)
 
+model optimizer 사용시 input data는 FP16, FP32만 지원된다.
+
+PQ는 안 되지만, QAT는 지원이 된다. 그러나 tf2에서 QAT가 experimental 이라서 사용가능한지 확인해봐야한다.
+openvino 에서 지원하는 quantize는? (<-> fake quantize)
+
 saved_model.pb(saved_model_X_quant)
 
 saved_model(saved_model/variable, saved_model/saved_model.pb, ...)
