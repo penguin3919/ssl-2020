@@ -5,3 +5,5 @@ https://datascience.stackexchange.com/questions/58597/why-models-performs-better
 This issue affects only USB-based Coral devices, and is irrelevant for PCIe devices.
 
 https://github.com/google-coral/libedgetpu
+
+https://stackoverflow.com/questions/145270/calling-c-c-from-python
