@@ -7,3 +7,6 @@ This issue affects only USB-based Coral devices, and is irrelevant for PCIe devi
 https://github.com/google-coral/libedgetpu
 
 https://stackoverflow.com/questions/145270/calling-c-c-from-python
+
+//add delay func (sleep(5) ->230us???)
+https://m.blog.naver.com/PostView.nhn?blogId=ifkiller&logNo=70050383643&proxyReferer=https:%2F%2Fwww.google.com%2F
