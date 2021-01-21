@@ -32,6 +32,8 @@ mo_tf.py [1 28 28 1] ([-1 28 28 1])
 
 model optimizer 사용시 input data는 FP16, FP32만 지원된다.
 
+openvino에 있는 format reader 파일에는 mnist data를 U8로 읽어온다.
+
 PQ는 안 되지만, QAT는 지원이 된다. 그러나 tf2에서 QAT가 experimental 이라서 사용가능한지 확인해봐야한다.
 openvino 에서 지원하는 quantize는? (<-> fake quantize)
 
