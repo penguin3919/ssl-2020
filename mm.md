@@ -12,3 +12,5 @@ https://stackoverflow.com/questions/145270/calling-c-c-from-python
 https://m.blog.naver.com/PostView.nhn?blogId=ifkiller&logNo=70050383643&proxyReferer=https:%2F%2Fwww.google.com%2F
 
 Pycoral -> delegate?
+
+소스를 꼭 거기다(opt) 갖다놓고 해야하나?
