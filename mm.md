@@ -14,3 +14,7 @@ https://m.blog.naver.com/PostView.nhn?blogId=ifkiller&logNo=70050383643&proxyRef
 Pycoral -> delegate?
 
 소스를 꼭 거기다(opt) 갖다놓고 해야하나?
+
+https://www.gnu.org/software/make/manual/html_node/Prerequisite-Types.html
+
+https://makefiletutorial.com/
